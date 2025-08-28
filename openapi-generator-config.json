@@ -1,0 +1,13 @@
+{
+  "generatorName": "typescript-axios",
+  "paramNaming": "camelCase",
+  "snapshot": true,
+  "inputSpec": "http://localhost:8000/swagger/v1/swagger.json",
+  "withSeparateModelsAndApi": true,
+  "enablePostProcessFile": true,
+  "apiPackage": "api",
+  "modelPackage": "types",
+  "useTags": false,
+  "supportsES6": true,
+  "outputDir": "src/client"
+}
