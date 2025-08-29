@@ -3,14 +3,14 @@ import { ApplicantApi, ApplicationApi, JobPostingApi, RegistrationApi } from "..
 import { BaseAPI } from "../client/base";
 import { ApiConfig, ApiAxiosInstance } from "../config/apiConfig";
 
-enum ApiRoutes {
+export enum ApiRoutes {
   Applicant,
   Application,
   JobPosting,
   Registration,
 }
 
-const useApi = (route: ApiRoutes) => {
+export const useApi = (route: ApiRoutes) => {
   const [api, setApi] = useState<BaseAPI | undefined>(undefined);
 
   useEffect(() => {
@@ -40,5 +40,3 @@ const useApi = (route: ApiRoutes) => {
 
   return api;
 };
-
-export { ApiRoutes };
