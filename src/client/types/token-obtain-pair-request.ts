@@ -14,9 +14,23 @@
 
 
 
-export * from './api/api-api';
-export * from './api/applicant-api';
-export * from './api/application-api';
-export * from './api/job-posting-api';
-export * from './api/registration-api';
+/**
+ * 
+ * @export
+ * @interface TokenObtainPairRequest
+ */
+export interface TokenObtainPairRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TokenObtainPairRequest
+     */
+    'username': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TokenObtainPairRequest
+     */
+    'password': string;
+}
 

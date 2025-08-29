@@ -275,6 +275,248 @@ export const JobPostingApiAxiosParamCreator = function (configuration?: Configur
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @param {JobPostingRequest} jobPostingRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        jobsCreate: async (jobPostingRequest: JobPostingRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jobPostingRequest' is not null or undefined
+            assertParamExists('jobsCreate', 'jobPostingRequest', jobPostingRequest)
+            const localVarPath = `/jobs/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication cookieAuth required
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jobPostingRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {number} id A unique integer value identifying this job posting.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        jobsDestroy: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('jobsDestroy', 'id', id)
+            const localVarPath = `/jobs/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication cookieAuth required
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        jobsList: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/jobs/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication cookieAuth required
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {number} id A unique integer value identifying this job posting.
+         * @param {PatchedJobPostingRequest} [patchedJobPostingRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        jobsPartialUpdate: async (id: number, patchedJobPostingRequest?: PatchedJobPostingRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('jobsPartialUpdate', 'id', id)
+            const localVarPath = `/jobs/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication cookieAuth required
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(patchedJobPostingRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {number} id A unique integer value identifying this job posting.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        jobsRetrieve: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('jobsRetrieve', 'id', id)
+            const localVarPath = `/jobs/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication cookieAuth required
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {number} id A unique integer value identifying this job posting.
+         * @param {JobPostingRequest} jobPostingRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        jobsUpdate: async (id: number, jobPostingRequest: JobPostingRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('jobsUpdate', 'id', id)
+            // verify required parameter 'jobPostingRequest' is not null or undefined
+            assertParamExists('jobsUpdate', 'jobPostingRequest', jobPostingRequest)
+            const localVarPath = `/jobs/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication cookieAuth required
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jobPostingRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -358,6 +600,79 @@ export const JobPostingApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['JobPostingApi.apiV1JobsUpdate']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * 
+         * @param {JobPostingRequest} jobPostingRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async jobsCreate(jobPostingRequest: JobPostingRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JobPosting>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.jobsCreate(jobPostingRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobPostingApi.jobsCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {number} id A unique integer value identifying this job posting.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async jobsDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.jobsDestroy(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobPostingApi.jobsDestroy']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async jobsList(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<JobPosting>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.jobsList(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobPostingApi.jobsList']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {number} id A unique integer value identifying this job posting.
+         * @param {PatchedJobPostingRequest} [patchedJobPostingRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async jobsPartialUpdate(id: number, patchedJobPostingRequest?: PatchedJobPostingRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JobPosting>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.jobsPartialUpdate(id, patchedJobPostingRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobPostingApi.jobsPartialUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {number} id A unique integer value identifying this job posting.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async jobsRetrieve(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JobPosting>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.jobsRetrieve(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobPostingApi.jobsRetrieve']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {number} id A unique integer value identifying this job posting.
+         * @param {JobPostingRequest} jobPostingRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async jobsUpdate(id: number, jobPostingRequest: JobPostingRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JobPosting>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.jobsUpdate(id, jobPostingRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobPostingApi.jobsUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -422,6 +737,61 @@ export const JobPostingApiFactory = function (configuration?: Configuration, bas
          */
         apiV1JobsUpdate(id: number, jobPostingRequest: JobPostingRequest, options?: RawAxiosRequestConfig): AxiosPromise<JobPosting> {
             return localVarFp.apiV1JobsUpdate(id, jobPostingRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {JobPostingRequest} jobPostingRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        jobsCreate(jobPostingRequest: JobPostingRequest, options?: RawAxiosRequestConfig): AxiosPromise<JobPosting> {
+            return localVarFp.jobsCreate(jobPostingRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {number} id A unique integer value identifying this job posting.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        jobsDestroy(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.jobsDestroy(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        jobsList(options?: RawAxiosRequestConfig): AxiosPromise<Array<JobPosting>> {
+            return localVarFp.jobsList(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {number} id A unique integer value identifying this job posting.
+         * @param {PatchedJobPostingRequest} [patchedJobPostingRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        jobsPartialUpdate(id: number, patchedJobPostingRequest?: PatchedJobPostingRequest, options?: RawAxiosRequestConfig): AxiosPromise<JobPosting> {
+            return localVarFp.jobsPartialUpdate(id, patchedJobPostingRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {number} id A unique integer value identifying this job posting.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        jobsRetrieve(id: number, options?: RawAxiosRequestConfig): AxiosPromise<JobPosting> {
+            return localVarFp.jobsRetrieve(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {number} id A unique integer value identifying this job posting.
+         * @param {JobPostingRequest} jobPostingRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        jobsUpdate(id: number, jobPostingRequest: JobPostingRequest, options?: RawAxiosRequestConfig): AxiosPromise<JobPosting> {
+            return localVarFp.jobsUpdate(id, jobPostingRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -498,6 +868,73 @@ export class JobPostingApi extends BaseAPI {
      */
     public apiV1JobsUpdate(id: number, jobPostingRequest: JobPostingRequest, options?: RawAxiosRequestConfig) {
         return JobPostingApiFp(this.configuration).apiV1JobsUpdate(id, jobPostingRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {JobPostingRequest} jobPostingRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof JobPostingApi
+     */
+    public jobsCreate(jobPostingRequest: JobPostingRequest, options?: RawAxiosRequestConfig) {
+        return JobPostingApiFp(this.configuration).jobsCreate(jobPostingRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {number} id A unique integer value identifying this job posting.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof JobPostingApi
+     */
+    public jobsDestroy(id: number, options?: RawAxiosRequestConfig) {
+        return JobPostingApiFp(this.configuration).jobsDestroy(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof JobPostingApi
+     */
+    public jobsList(options?: RawAxiosRequestConfig) {
+        return JobPostingApiFp(this.configuration).jobsList(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {number} id A unique integer value identifying this job posting.
+     * @param {PatchedJobPostingRequest} [patchedJobPostingRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof JobPostingApi
+     */
+    public jobsPartialUpdate(id: number, patchedJobPostingRequest?: PatchedJobPostingRequest, options?: RawAxiosRequestConfig) {
+        return JobPostingApiFp(this.configuration).jobsPartialUpdate(id, patchedJobPostingRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {number} id A unique integer value identifying this job posting.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof JobPostingApi
+     */
+    public jobsRetrieve(id: number, options?: RawAxiosRequestConfig) {
+        return JobPostingApiFp(this.configuration).jobsRetrieve(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {number} id A unique integer value identifying this job posting.
+     * @param {JobPostingRequest} jobPostingRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof JobPostingApi
+     */
+    public jobsUpdate(id: number, jobPostingRequest: JobPostingRequest, options?: RawAxiosRequestConfig) {
+        return JobPostingApiFp(this.configuration).jobsUpdate(id, jobPostingRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

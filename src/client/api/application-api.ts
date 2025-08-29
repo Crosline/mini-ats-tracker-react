@@ -76,11 +76,11 @@ export const ApplicationApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * 
-         * @param {number} id A unique integer value identifying this application.
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiV1ApplicationsDestroy: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiV1ApplicationsDestroy: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('apiV1ApplicationsDestroy', 'id', id)
             const localVarPath = `/api/v1/applications/{id}/`
@@ -150,12 +150,12 @@ export const ApplicationApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * 
-         * @param {number} id A unique integer value identifying this application.
+         * @param {string} id 
          * @param {PatchedApplicationRequest} [patchedApplicationRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiV1ApplicationsPartialUpdate: async (id: number, patchedApplicationRequest?: PatchedApplicationRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiV1ApplicationsPartialUpdate: async (id: string, patchedApplicationRequest?: PatchedApplicationRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('apiV1ApplicationsPartialUpdate', 'id', id)
             const localVarPath = `/api/v1/applications/{id}/`
@@ -193,11 +193,11 @@ export const ApplicationApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * 
-         * @param {number} id A unique integer value identifying this application.
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiV1ApplicationsRetrieve: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiV1ApplicationsRetrieve: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('apiV1ApplicationsRetrieve', 'id', id)
             const localVarPath = `/api/v1/applications/{id}/`
@@ -232,17 +232,259 @@ export const ApplicationApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * 
-         * @param {number} id A unique integer value identifying this application.
+         * @param {string} id 
          * @param {ApplicationRequest} applicationRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiV1ApplicationsUpdate: async (id: number, applicationRequest: ApplicationRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiV1ApplicationsUpdate: async (id: string, applicationRequest: ApplicationRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('apiV1ApplicationsUpdate', 'id', id)
             // verify required parameter 'applicationRequest' is not null or undefined
             assertParamExists('apiV1ApplicationsUpdate', 'applicationRequest', applicationRequest)
             const localVarPath = `/api/v1/applications/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication cookieAuth required
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(applicationRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {ApplicationRequest} applicationRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        applicationsCreate: async (applicationRequest: ApplicationRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'applicationRequest' is not null or undefined
+            assertParamExists('applicationsCreate', 'applicationRequest', applicationRequest)
+            const localVarPath = `/applications/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication cookieAuth required
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(applicationRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        applicationsDestroy: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('applicationsDestroy', 'id', id)
+            const localVarPath = `/applications/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication cookieAuth required
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        applicationsList: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/applications/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication cookieAuth required
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {PatchedApplicationRequest} [patchedApplicationRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        applicationsPartialUpdate: async (id: string, patchedApplicationRequest?: PatchedApplicationRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('applicationsPartialUpdate', 'id', id)
+            const localVarPath = `/applications/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication cookieAuth required
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(patchedApplicationRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        applicationsRetrieve: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('applicationsRetrieve', 'id', id)
+            const localVarPath = `/applications/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication cookieAuth required
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {ApplicationRequest} applicationRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        applicationsUpdate: async (id: string, applicationRequest: ApplicationRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('applicationsUpdate', 'id', id)
+            // verify required parameter 'applicationRequest' is not null or undefined
+            assertParamExists('applicationsUpdate', 'applicationRequest', applicationRequest)
+            const localVarPath = `/applications/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -299,11 +541,11 @@ export const ApplicationApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id A unique integer value identifying this application.
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiV1ApplicationsDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async apiV1ApplicationsDestroy(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiV1ApplicationsDestroy(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ApplicationApi.apiV1ApplicationsDestroy']?.[localVarOperationServerIndex]?.url;
@@ -322,12 +564,12 @@ export const ApplicationApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id A unique integer value identifying this application.
+         * @param {string} id 
          * @param {PatchedApplicationRequest} [patchedApplicationRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiV1ApplicationsPartialUpdate(id: number, patchedApplicationRequest?: PatchedApplicationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Application>> {
+        async apiV1ApplicationsPartialUpdate(id: string, patchedApplicationRequest?: PatchedApplicationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Application>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiV1ApplicationsPartialUpdate(id, patchedApplicationRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ApplicationApi.apiV1ApplicationsPartialUpdate']?.[localVarOperationServerIndex]?.url;
@@ -335,11 +577,11 @@ export const ApplicationApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id A unique integer value identifying this application.
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiV1ApplicationsRetrieve(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Application>> {
+        async apiV1ApplicationsRetrieve(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Application>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiV1ApplicationsRetrieve(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ApplicationApi.apiV1ApplicationsRetrieve']?.[localVarOperationServerIndex]?.url;
@@ -347,15 +589,88 @@ export const ApplicationApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id A unique integer value identifying this application.
+         * @param {string} id 
          * @param {ApplicationRequest} applicationRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiV1ApplicationsUpdate(id: number, applicationRequest: ApplicationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Application>> {
+        async apiV1ApplicationsUpdate(id: string, applicationRequest: ApplicationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Application>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiV1ApplicationsUpdate(id, applicationRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ApplicationApi.apiV1ApplicationsUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {ApplicationRequest} applicationRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async applicationsCreate(applicationRequest: ApplicationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Application>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.applicationsCreate(applicationRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ApplicationApi.applicationsCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async applicationsDestroy(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.applicationsDestroy(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ApplicationApi.applicationsDestroy']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async applicationsList(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Application>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.applicationsList(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ApplicationApi.applicationsList']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {PatchedApplicationRequest} [patchedApplicationRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async applicationsPartialUpdate(id: string, patchedApplicationRequest?: PatchedApplicationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Application>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.applicationsPartialUpdate(id, patchedApplicationRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ApplicationApi.applicationsPartialUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async applicationsRetrieve(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Application>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.applicationsRetrieve(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ApplicationApi.applicationsRetrieve']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {ApplicationRequest} applicationRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async applicationsUpdate(id: string, applicationRequest: ApplicationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Application>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.applicationsUpdate(id, applicationRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ApplicationApi.applicationsUpdate']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -379,11 +694,11 @@ export const ApplicationApiFactory = function (configuration?: Configuration, ba
         },
         /**
          * 
-         * @param {number} id A unique integer value identifying this application.
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiV1ApplicationsDestroy(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+        apiV1ApplicationsDestroy(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.apiV1ApplicationsDestroy(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -396,32 +711,87 @@ export const ApplicationApiFactory = function (configuration?: Configuration, ba
         },
         /**
          * 
-         * @param {number} id A unique integer value identifying this application.
+         * @param {string} id 
          * @param {PatchedApplicationRequest} [patchedApplicationRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiV1ApplicationsPartialUpdate(id: number, patchedApplicationRequest?: PatchedApplicationRequest, options?: RawAxiosRequestConfig): AxiosPromise<Application> {
+        apiV1ApplicationsPartialUpdate(id: string, patchedApplicationRequest?: PatchedApplicationRequest, options?: RawAxiosRequestConfig): AxiosPromise<Application> {
             return localVarFp.apiV1ApplicationsPartialUpdate(id, patchedApplicationRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {number} id A unique integer value identifying this application.
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiV1ApplicationsRetrieve(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Application> {
+        apiV1ApplicationsRetrieve(id: string, options?: RawAxiosRequestConfig): AxiosPromise<Application> {
             return localVarFp.apiV1ApplicationsRetrieve(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {number} id A unique integer value identifying this application.
+         * @param {string} id 
          * @param {ApplicationRequest} applicationRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiV1ApplicationsUpdate(id: number, applicationRequest: ApplicationRequest, options?: RawAxiosRequestConfig): AxiosPromise<Application> {
+        apiV1ApplicationsUpdate(id: string, applicationRequest: ApplicationRequest, options?: RawAxiosRequestConfig): AxiosPromise<Application> {
             return localVarFp.apiV1ApplicationsUpdate(id, applicationRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {ApplicationRequest} applicationRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        applicationsCreate(applicationRequest: ApplicationRequest, options?: RawAxiosRequestConfig): AxiosPromise<Application> {
+            return localVarFp.applicationsCreate(applicationRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        applicationsDestroy(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.applicationsDestroy(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        applicationsList(options?: RawAxiosRequestConfig): AxiosPromise<Array<Application>> {
+            return localVarFp.applicationsList(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {PatchedApplicationRequest} [patchedApplicationRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        applicationsPartialUpdate(id: string, patchedApplicationRequest?: PatchedApplicationRequest, options?: RawAxiosRequestConfig): AxiosPromise<Application> {
+            return localVarFp.applicationsPartialUpdate(id, patchedApplicationRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        applicationsRetrieve(id: string, options?: RawAxiosRequestConfig): AxiosPromise<Application> {
+            return localVarFp.applicationsRetrieve(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {ApplicationRequest} applicationRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        applicationsUpdate(id: string, applicationRequest: ApplicationRequest, options?: RawAxiosRequestConfig): AxiosPromise<Application> {
+            return localVarFp.applicationsUpdate(id, applicationRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -446,12 +816,12 @@ export class ApplicationApi extends BaseAPI {
 
     /**
      * 
-     * @param {number} id A unique integer value identifying this application.
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ApplicationApi
      */
-    public apiV1ApplicationsDestroy(id: number, options?: RawAxiosRequestConfig) {
+    public apiV1ApplicationsDestroy(id: string, options?: RawAxiosRequestConfig) {
         return ApplicationApiFp(this.configuration).apiV1ApplicationsDestroy(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -467,37 +837,104 @@ export class ApplicationApi extends BaseAPI {
 
     /**
      * 
-     * @param {number} id A unique integer value identifying this application.
+     * @param {string} id 
      * @param {PatchedApplicationRequest} [patchedApplicationRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ApplicationApi
      */
-    public apiV1ApplicationsPartialUpdate(id: number, patchedApplicationRequest?: PatchedApplicationRequest, options?: RawAxiosRequestConfig) {
+    public apiV1ApplicationsPartialUpdate(id: string, patchedApplicationRequest?: PatchedApplicationRequest, options?: RawAxiosRequestConfig) {
         return ApplicationApiFp(this.configuration).apiV1ApplicationsPartialUpdate(id, patchedApplicationRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id A unique integer value identifying this application.
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ApplicationApi
      */
-    public apiV1ApplicationsRetrieve(id: number, options?: RawAxiosRequestConfig) {
+    public apiV1ApplicationsRetrieve(id: string, options?: RawAxiosRequestConfig) {
         return ApplicationApiFp(this.configuration).apiV1ApplicationsRetrieve(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id A unique integer value identifying this application.
+     * @param {string} id 
      * @param {ApplicationRequest} applicationRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ApplicationApi
      */
-    public apiV1ApplicationsUpdate(id: number, applicationRequest: ApplicationRequest, options?: RawAxiosRequestConfig) {
+    public apiV1ApplicationsUpdate(id: string, applicationRequest: ApplicationRequest, options?: RawAxiosRequestConfig) {
         return ApplicationApiFp(this.configuration).apiV1ApplicationsUpdate(id, applicationRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {ApplicationRequest} applicationRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApplicationApi
+     */
+    public applicationsCreate(applicationRequest: ApplicationRequest, options?: RawAxiosRequestConfig) {
+        return ApplicationApiFp(this.configuration).applicationsCreate(applicationRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApplicationApi
+     */
+    public applicationsDestroy(id: string, options?: RawAxiosRequestConfig) {
+        return ApplicationApiFp(this.configuration).applicationsDestroy(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApplicationApi
+     */
+    public applicationsList(options?: RawAxiosRequestConfig) {
+        return ApplicationApiFp(this.configuration).applicationsList(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} id 
+     * @param {PatchedApplicationRequest} [patchedApplicationRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApplicationApi
+     */
+    public applicationsPartialUpdate(id: string, patchedApplicationRequest?: PatchedApplicationRequest, options?: RawAxiosRequestConfig) {
+        return ApplicationApiFp(this.configuration).applicationsPartialUpdate(id, patchedApplicationRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApplicationApi
+     */
+    public applicationsRetrieve(id: string, options?: RawAxiosRequestConfig) {
+        return ApplicationApiFp(this.configuration).applicationsRetrieve(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} id 
+     * @param {ApplicationRequest} applicationRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApplicationApi
+     */
+    public applicationsUpdate(id: string, applicationRequest: ApplicationRequest, options?: RawAxiosRequestConfig) {
+        return ApplicationApiFp(this.configuration).applicationsUpdate(id, applicationRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
