@@ -4,6 +4,7 @@ import { RegistrationApi, UserRegistrationRequest } from "../../client";
 import { PasswordField } from "../../modules/registration/PasswordField";
 
 const LoginPage = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [isRegister, setIsRegister] = useState(false);
   const api = useApi(ApiRoutes.Registration) as RegistrationApi;
   const [form, setForm] = useState<UserRegistrationRequest>({
@@ -35,6 +36,7 @@ const LoginPage = () => {
             type="text"
             name="username"
             placeholder="Username"
+            disabled={isLoading}
             value={form.username}
             onChange={handleChange}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:ring"
@@ -45,20 +47,27 @@ const LoginPage = () => {
               type="email"
               name="email"
               placeholder="Email"
+              disabled={isLoading}
               value={form.email}
               onChange={handleChange}
               className="w-full px-3 py-2 border rounded focus:outline-none focus:ring"
               required
             />
           )}
-          <PasswordField isRegister={isRegister} form={form} handleChange={handleChange} />
-          <button type="submit" className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition">
-            {isRegister ? "Register" : "Login"}
+          <PasswordField isLoading={isLoading} isRegister={isRegister} form={form} handleChange={handleChange} />
+
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition"
+          >
+            {isLoading ? <LoadingSpinner /> : <span>{isRegister ? "Register" : "Login"}</span>}
           </button>
         </form>
         <button
           className="text-indigo-600 hover:underline text-sm"
           type="button"
+          disabled={isLoading}
           onClick={() => setIsRegister((v) => !v)}
         >
           {isRegister ? "Already have an account? Login" : "Not registered?"}
@@ -67,5 +76,11 @@ const LoginPage = () => {
     </main>
   );
 };
+
+const LoadingSpinner = ({ color = "white" }: { color?: string }) => (
+  <div className="flex justify-center">
+    <div className={`animate-spin rounded-full h-5 w-5 border-b-2 border-${color}-600`}></div>
+  </div>
+);
 
 export default LoginPage;

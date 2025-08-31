@@ -37,11 +37,12 @@ function passwordValidation(password: string, secondPassword: string): string[] 
 
 interface PasswordFieldProps {
   isRegister: boolean;
+  isLoading: boolean;
   form: UserRegistrationRequest;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const PasswordField: React.FC<PasswordFieldProps> = ({ isRegister, form, handleChange }) => {
+export const PasswordField: React.FC<PasswordFieldProps> = ({ isRegister, isLoading, form, handleChange }) => {
   const [errors, setErrors] = useState<string[]>([]);
   const [secondPassword, setSecondPassword] = useState<string>("");
 
@@ -68,6 +69,7 @@ export const PasswordField: React.FC<PasswordFieldProps> = ({ isRegister, form, 
         type="password"
         name="password"
         placeholder="Password"
+        disabled={isLoading}
         value={form.password}
         onChange={handleChange}
         className="w-full px-3 py-2 border rounded focus:outline-none focus:ring"
@@ -80,6 +82,7 @@ export const PasswordField: React.FC<PasswordFieldProps> = ({ isRegister, form, 
             type="password"
             name="password"
             placeholder="Repeat Password"
+            disabled={isLoading}
             value={secondPassword}
             onChange={handleSecondPasswordChange}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:ring"
