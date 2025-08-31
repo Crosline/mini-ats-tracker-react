@@ -1,3 +1,7 @@
+interface IconProps {
+  className?: string;
+}
+
 const BriefcaseIcon: React.FC<IconProps> = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
