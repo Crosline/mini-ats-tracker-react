@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { ApiRoutes, useApi } from "../../hooks/useApi";
 import { RegistrationApi, UserRegistrationRequest } from "../../client";
 import { PasswordField } from "../../modules/registration/PasswordField";
+import { LoadingSpinner } from "../../modules/common";
+import { useAuth } from "../../context/AuthContext";
 
 const LoginPage = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const { login } = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
   const api = useApi(ApiRoutes.Registration) as RegistrationApi;
   const [form, setForm] = useState<UserRegistrationRequest>({
@@ -17,14 +20,19 @@ const LoginPage = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
     if (isRegister) {
-      api.apiV1RegisterCreate(form);
+      const response = await api.apiV1RegisterCreate(form);
     } else {
-      // handle login
+      console.log("Logging in with", form.username, form.password);
+      await login(form.username, form.password);
+      window.location.href = "/";
     }
+
+    setIsLoading(false);
   };
 
   return (
@@ -54,8 +62,7 @@ const LoginPage = () => {
               required
             />
           )}
-          <PasswordField isLoading={isLoading} isRegister={isRegister} form={form} handleChange={handleChange} />
-
+          <PasswordField disabled={isLoading} isRegister={isRegister} form={form} handleChange={handleChange} />
           <button
             type="submit"
             disabled={isLoading}
@@ -76,11 +83,5 @@ const LoginPage = () => {
     </main>
   );
 };
-
-const LoadingSpinner = ({ color = "white" }: { color?: string }) => (
-  <div className="flex justify-center">
-    <div className={`animate-spin rounded-full h-5 w-5 border-b-2 border-${color}-600`}></div>
-  </div>
-);
 
 export default LoginPage;
