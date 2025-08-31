@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ApplicantApi, ApplicationApi, JobPostingApi, RegistrationApi } from "../client";
+import { ApiApi, ApplicantApi, ApplicationApi, JobPostingApi, RegistrationApi } from "../client";
 import { BaseAPI } from "../client/base";
 import { ApiConfig, ApiAxiosInstance } from "../config/apiConfig";
 
@@ -8,6 +8,7 @@ export enum ApiRoutes {
   Application,
   JobPosting,
   Registration,
+  Token,
 }
 
 export const useApi = (route: ApiRoutes) => {
@@ -30,6 +31,9 @@ export const useApi = (route: ApiRoutes) => {
         break;
       case ApiRoutes.Registration:
         apiInstance = new RegistrationApi(ApiConfig, undefined, ApiAxiosInstance);
+        break;
+      case ApiRoutes.Token:
+        apiInstance = new ApiApi(ApiConfig, undefined, ApiAxiosInstance);
         break;
       default:
         throw new Error("Invalid API route");
