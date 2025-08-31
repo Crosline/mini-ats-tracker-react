@@ -42,7 +42,7 @@ const { status, data } = await apiInstance.apiV1RegisterCreate(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[jwtAuth](../README.md#jwtAuth)
 
 ### HTTP request headers
 

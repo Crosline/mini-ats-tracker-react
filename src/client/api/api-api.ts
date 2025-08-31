@@ -41,10 +41,10 @@ export const ApiApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiV1TokenCreate: async (tokenObtainPairRequest: TokenObtainPairRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiV1LoginCreate: async (tokenObtainPairRequest: TokenObtainPairRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tokenObtainPairRequest' is not null or undefined
-            assertParamExists('apiV1TokenCreate', 'tokenObtainPairRequest', tokenObtainPairRequest)
-            const localVarPath = `/api/v1/token/`;
+            assertParamExists('apiV1LoginCreate', 'tokenObtainPairRequest', tokenObtainPairRequest)
+            const localVarPath = `/api/v1/login/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -76,10 +76,10 @@ export const ApiApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiV1TokenRefreshCreate: async (tokenRefreshRequest: TokenRefreshRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiV1LoginRefreshCreate: async (tokenRefreshRequest: TokenRefreshRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tokenRefreshRequest' is not null or undefined
-            assertParamExists('apiV1TokenRefreshCreate', 'tokenRefreshRequest', tokenRefreshRequest)
-            const localVarPath = `/api/v1/token/refresh/`;
+            assertParamExists('apiV1LoginRefreshCreate', 'tokenRefreshRequest', tokenRefreshRequest)
+            const localVarPath = `/api/v1/login/refresh/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -121,10 +121,10 @@ export const ApiApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiV1TokenCreate(tokenObtainPairRequest: TokenObtainPairRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TokenObtainPair>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiV1TokenCreate(tokenObtainPairRequest, options);
+        async apiV1LoginCreate(tokenObtainPairRequest: TokenObtainPairRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TokenObtainPair>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiV1LoginCreate(tokenObtainPairRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApiApi.apiV1TokenCreate']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApiApi.apiV1LoginCreate']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -133,10 +133,10 @@ export const ApiApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiV1TokenRefreshCreate(tokenRefreshRequest: TokenRefreshRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TokenRefresh>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiV1TokenRefreshCreate(tokenRefreshRequest, options);
+        async apiV1LoginRefreshCreate(tokenRefreshRequest: TokenRefreshRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TokenRefresh>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiV1LoginRefreshCreate(tokenRefreshRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApiApi.apiV1TokenRefreshCreate']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApiApi.apiV1LoginRefreshCreate']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -155,8 +155,8 @@ export const ApiApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiV1TokenCreate(tokenObtainPairRequest: TokenObtainPairRequest, options?: RawAxiosRequestConfig): AxiosPromise<TokenObtainPair> {
-            return localVarFp.apiV1TokenCreate(tokenObtainPairRequest, options).then((request) => request(axios, basePath));
+        apiV1LoginCreate(tokenObtainPairRequest: TokenObtainPairRequest, options?: RawAxiosRequestConfig): AxiosPromise<TokenObtainPair> {
+            return localVarFp.apiV1LoginCreate(tokenObtainPairRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Takes a refresh type JSON web token and returns an access type JSON web token if the refresh token is valid.
@@ -164,8 +164,8 @@ export const ApiApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiV1TokenRefreshCreate(tokenRefreshRequest: TokenRefreshRequest, options?: RawAxiosRequestConfig): AxiosPromise<TokenRefresh> {
-            return localVarFp.apiV1TokenRefreshCreate(tokenRefreshRequest, options).then((request) => request(axios, basePath));
+        apiV1LoginRefreshCreate(tokenRefreshRequest: TokenRefreshRequest, options?: RawAxiosRequestConfig): AxiosPromise<TokenRefresh> {
+            return localVarFp.apiV1LoginRefreshCreate(tokenRefreshRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -184,8 +184,8 @@ export class ApiApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiApi
      */
-    public apiV1TokenCreate(tokenObtainPairRequest: TokenObtainPairRequest, options?: RawAxiosRequestConfig) {
-        return ApiApiFp(this.configuration).apiV1TokenCreate(tokenObtainPairRequest, options).then((request) => request(this.axios, this.basePath));
+    public apiV1LoginCreate(tokenObtainPairRequest: TokenObtainPairRequest, options?: RawAxiosRequestConfig) {
+        return ApiApiFp(this.configuration).apiV1LoginCreate(tokenObtainPairRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -195,8 +195,8 @@ export class ApiApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiApi
      */
-    public apiV1TokenRefreshCreate(tokenRefreshRequest: TokenRefreshRequest, options?: RawAxiosRequestConfig) {
-        return ApiApiFp(this.configuration).apiV1TokenRefreshCreate(tokenRefreshRequest, options).then((request) => request(this.axios, this.basePath));
+    public apiV1LoginRefreshCreate(tokenRefreshRequest: TokenRefreshRequest, options?: RawAxiosRequestConfig) {
+        return ApiApiFp(this.configuration).apiV1LoginRefreshCreate(tokenRefreshRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

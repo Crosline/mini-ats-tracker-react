@@ -53,7 +53,7 @@ const { status, data } = await apiInstance.apiV1ApplicantsCreate(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[jwtAuth](../README.md#jwtAuth)
 
 ### HTTP request headers
 
@@ -103,7 +103,7 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[jwtAuth](../README.md#jwtAuth)
 
 ### HTTP request headers
 
@@ -146,7 +146,7 @@ This endpoint does not have any parameters.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[jwtAuth](../README.md#jwtAuth)
 
 ### HTTP request headers
 
@@ -200,7 +200,7 @@ const { status, data } = await apiInstance.apiV1ApplicantsPartialUpdate(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[jwtAuth](../README.md#jwtAuth)
 
 ### HTTP request headers
 
@@ -250,7 +250,7 @@ const { status, data } = await apiInstance.apiV1ApplicantsRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[jwtAuth](../README.md#jwtAuth)
 
 ### HTTP request headers
 
@@ -304,7 +304,7 @@ const { status, data } = await apiInstance.apiV1ApplicantsUpdate(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[jwtAuth](../README.md#jwtAuth)
 
 ### HTTP request headers
 
@@ -355,7 +355,7 @@ const { status, data } = await apiInstance.applicantsCreate(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[jwtAuth](../README.md#jwtAuth)
 
 ### HTTP request headers
 
@@ -405,7 +405,7 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[jwtAuth](../README.md#jwtAuth)
 
 ### HTTP request headers
 
@@ -448,7 +448,7 @@ This endpoint does not have any parameters.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[jwtAuth](../README.md#jwtAuth)
 
 ### HTTP request headers
 
@@ -502,7 +502,7 @@ const { status, data } = await apiInstance.applicantsPartialUpdate(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[jwtAuth](../README.md#jwtAuth)
 
 ### HTTP request headers
 
@@ -552,7 +552,7 @@ const { status, data } = await apiInstance.applicantsRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[jwtAuth](../README.md#jwtAuth)
 
 ### HTTP request headers
 
@@ -606,7 +606,7 @@ const { status, data } = await apiInstance.applicantsUpdate(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[jwtAuth](../README.md#jwtAuth)
 
 ### HTTP request headers
 

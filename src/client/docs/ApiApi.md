@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**apiV1TokenCreate**](#apiv1tokencreate) | **POST** /api/v1/token/ | |
-|[**apiV1TokenRefreshCreate**](#apiv1tokenrefreshcreate) | **POST** /api/v1/token/refresh/ | |
+|[**apiV1LoginCreate**](#apiv1logincreate) | **POST** /api/v1/login/ | |
+|[**apiV1LoginRefreshCreate**](#apiv1loginrefreshcreate) | **POST** /api/v1/login/refresh/ | |
 
-# **apiV1TokenCreate**
-> TokenObtainPair apiV1TokenCreate(tokenObtainPairRequest)
+# **apiV1LoginCreate**
+> TokenObtainPair apiV1LoginCreate(tokenObtainPairRequest)
 
 Takes a set of user credentials and returns an access and refresh JSON web token pair to prove the authentication of those credentials.
 
@@ -26,7 +26,7 @@ const apiInstance = new ApiApi(configuration);
 
 let tokenObtainPairRequest: TokenObtainPairRequest; //
 
-const { status, data } = await apiInstance.apiV1TokenCreate(
+const { status, data } = await apiInstance.apiV1LoginCreate(
     tokenObtainPairRequest
 );
 ```
@@ -59,8 +59,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **apiV1TokenRefreshCreate**
-> TokenRefresh apiV1TokenRefreshCreate(tokenRefreshRequest)
+# **apiV1LoginRefreshCreate**
+> TokenRefresh apiV1LoginRefreshCreate(tokenRefreshRequest)
 
 Takes a refresh type JSON web token and returns an access type JSON web token if the refresh token is valid.
 
@@ -78,7 +78,7 @@ const apiInstance = new ApiApi(configuration);
 
 let tokenRefreshRequest: TokenRefreshRequest; //
 
-const { status, data } = await apiInstance.apiV1TokenRefreshCreate(
+const { status, data } = await apiInstance.apiV1LoginRefreshCreate(
     tokenRefreshRequest
 );
 ```
